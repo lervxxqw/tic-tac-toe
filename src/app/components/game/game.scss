@@ -1,0 +1,35 @@
+
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+}
+
+.sheet {
+  position: relative;
+}
+
+.sheet-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.arena {
+  height: 480px;
+  width: 480px;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.arena-img {
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}

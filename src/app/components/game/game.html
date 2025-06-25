@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="sheet">
+    <div class="sheet-content">
+      @if (!isPlay) {
+        <button (click)="startGame()" matFab extended>
+          <mat-icon>play_arrow</mat-icon>
+          Грати
+        </button>
+      } @else {
+        <div class="arena">
+          @for (cell of cells; track $index){
+
+              <app-cell [currentPlayer]="currentPlayer" (makeMove)="makeMove($index)"
+              [value]="cell">
+              </app-cell>
+
+          }
+          <img class="arena-img" src="images/game-arena.png">
+        </div>
+      }
+    </div>
+    <img src="images/sheet-img.jpg">
+
+  </div>
+</div>
+

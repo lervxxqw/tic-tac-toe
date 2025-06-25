@@ -1,0 +1,51 @@
+<div class="container" (click)="onClick()">
+  @if (!value) {
+    <div class="hover-container">
+      @if (currentPlayer === 'X') {
+        <div class="player-x">
+          <div class="line line-a">
+          </div>
+          <div class="line line-b"></div>
+        </div>
+      }
+      @if (currentPlayer === 'O') {
+        <div class="player-o">
+          <svg width="120" height="120" viewBox="0 0 120 120">
+            <circle
+              cx="60"
+              cy="60"
+              r="50"
+              stroke="blue"
+              stroke-width="4"
+              fill="none"
+              class="draw-circle"
+            />
+          </svg>
+        </div>
+      }</div>
+
+  } @else {
+    @if (value === 'X') {
+      <div class="player-x">
+        <div class="line line-a">
+        </div>
+        <div class="line line-b"></div>
+      </div>
+    }
+    @if (value === 'O') {
+      <div class="player-o">
+        <svg width="120" height="120" viewBox="0 0 120 120">
+          <circle
+            cx="60"
+            cy="60"
+            r="50"
+            stroke="blue"
+            stroke-width="4"
+            fill="none"
+            class="draw-circle"
+          />
+        </svg>
+      </div>
+    }
+  }
+</div>
