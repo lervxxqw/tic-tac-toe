@@ -1,5 +1,5 @@
 <div class="container" (click)="onClick()">
-  @if (!value) {
+  @if (!value && !gameService.winner) {
     <div class="hover-container">
       @if (currentPlayer === 'X') {
         <div class="player-x">
@@ -10,7 +10,7 @@
       }
       @if (currentPlayer === 'O') {
         <div class="player-o">
-          <svg width="120" height="120" viewBox="0 0 120 120">
+          <svg width="80" height="80" viewBox="0 0 120 120">
             <circle
               cx="60"
               cy="60"
@@ -34,7 +34,7 @@
     }
     @if (value === 'O') {
       <div class="player-o">
-        <svg width="120" height="120" viewBox="0 0 120 120">
+        <svg width="80" height="80" viewBox="0 0 120 120">
           <circle
             cx="60"
             cy="60"

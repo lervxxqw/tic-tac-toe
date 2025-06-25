@@ -4,11 +4,23 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+background-image: url('/images/background.jpg');
+  background-position: center;
+  background-size: cover;
+  &:before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.25); /* затемнення */
+    backdrop-filter: blur(2px); /* розмиття */
+    z-index: 1;
+  }
+ /* background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);*/
 }
 
 .sheet {
   position: relative;
+  z-index: 2;
 }
 
 .sheet-content {
@@ -16,11 +28,14 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
 
 .arena {
-  height: 480px;
-  width: 480px;
+  height: 375px;
+  width: 375px;
   position: relative;
   display: flex;
   flex-wrap: wrap;
@@ -32,4 +47,27 @@
   position: absolute;
   top: 0;
   left: 0;
+}
+
+.game-board {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.win-line {
+  position: absolute;
+  background: brown;
+  height: 4px;
+  width: 375px;
+  top: 0;
+  left: 0;
+  transform-origin: left center;
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
 }

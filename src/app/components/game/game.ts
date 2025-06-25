@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { MatFabButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import { Cell } from '../cell/cell';
+import {GameService} from '../../services/game';
 
 @Component({
   selector: 'app-game',
@@ -15,19 +16,23 @@ import { Cell } from '../cell/cell';
   standalone: true
 })
 export class Game {
-  currentPlayer: 'X' | 'O' = 'O'
-  cells = Array(9).fill(null);
   //змінна для визначення гри
-  isPlay = false
 
-  startGame() {
-    this.isPlay = true
-  }
-
-  makeMove(index: any) {
-    this.cells[index] = this.currentPlayer;
-    this.currentPlayer = this.currentPlayer === 'X' ? 'O' : 'X';
+  constructor(public gameService: GameService) {
 
   }
+  startGameWithBot(){
+    this.gameService.vsBot = true;
+    this.gameService.startGame()
+  }
+  startGameWithHuman() {
+    this.gameService.vsBot = false;
+    this.gameService.startGame()
+  }
+  restartGame() {
+    this.gameService.resetGame()
+  }
+
+
 }
 

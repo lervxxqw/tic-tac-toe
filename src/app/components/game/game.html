@@ -1,21 +1,33 @@
 <div class="container">
   <div class="sheet">
     <div class="sheet-content">
-      @if (!isPlay) {
-        <button (click)="startGame()" matFab extended>
-          <mat-icon>play_arrow</mat-icon>
-          Грати
+      @if (!gameService.isPlay) {
+        <h1><i>Хрестики нолики</i></h1>
+        <button (click)="startGameWithBot()" matFab extended>
+          <mat-icon>smart_toy</mat-icon>
+          Грати з комп'ютером
+        </button>
+        <button (click)="startGameWithHuman()" matFab extended>
+          <mat-icon>group</mat-icon>
+          Грати з другом
         </button>
       } @else {
+        <div class="game-board">
+        <button (click)="restartGame()" matFab extended>
+          <mat-icon>cached</mat-icon>
+          Нова гра
+        </button>
         <div class="arena">
-          @for (cell of cells; track $index){
+          <div class="win-line"></div>
+          @for (cell of gameService.cells; track $index){
 
-              <app-cell [currentPlayer]="currentPlayer" (makeMove)="makeMove($index)"
+              <app-cell [currentPlayer]="gameService.currentPlayer" (makeMove)="gameService.makeMove($index)"
               [value]="cell">
               </app-cell>
 
           }
           <img class="arena-img" src="images/game-arena.png">
+        </div>
         </div>
       }
     </div>
